@@ -1,0 +1,130 @@
+html {
+    color-scheme: light dark
+}
+
+body {
+    /* Set line height to 1.5 times the font size
+         and use the OS’s UI font as the website font
+       */
+    font: 100%/1.5 system-ui;
+    max-width: 100ch;
+    margin-inline: auto;
+    padding: 20px;
+  }
+
+nav {
+    /* background-color: #f8f9fa; */
+    padding: 10px;
+    border-radius: 5px;
+    /* position: fixed; */
+    top: 0;
+    left: 0;
+    /* height: 100%;
+    width: 200px; */
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: flex-start;
+    z-index: 1;
+    > a {
+        display: block;
+        padding: 10px;
+        margin: 5px 0;
+        border-radius: 0;
+        text-decoration: none;
+        color: inherit;
+        text-align: center;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    > a:hover {
+        background-color: color-mix(in oklch, rgba(178, 95, 180, 0.3), canvas 20%);
+        /* border-bottom-width: 4px;
+        border-bottom-color: rgb(178, 95, 180);
+        border-bottom-style: solid; */
+    }
+    > a.current {
+        background-color: color-mix(in oklch, rgba(178, 95, 180, 0.3), canvas 20%);
+        /* background-color: rgba(178, 95, 180, 0.3); */
+        border-bottom-width: 4px;
+        border-bottom-color: rgb(178, 95, 180);
+        border-bottom-style: solid;
+        font-weight: bold;
+    }
+}
+
+a {
+    margin: 5px 0;
+    border-radius: 5px;
+    color: inherit;
+    width: 100%;
+}
+
+/* body > *:not(nav) {
+    margin-left: 220px;
+} */
+
+
+form {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-column: 1 / -1;
+    gap: 1em;
+}
+
+form > div > label {
+    display: grid;
+    grid-template-columns: subgrid;
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+    gap: 1em;
+    > article {
+        grid-template-rows: subgrid;
+        grid-row: span 3;
+        > h2 {
+            margin: 0;
+        }
+    }
+}
+
+h1 {
+    font-size: 400%;
+}
+
+h1 h2 h3 h4 h5 h6 {
+    line-height: 1.1;
+    text-wrap: balance;
+}
+
+.theme-select {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 80%;
+    font-family: inherit;
+    > label {
+        margin-right: 5px;
+    }
+}
+
+div#profile-stats > dl{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    > dt, > dd {
+        grid-column: span 1;
+    }
+    > dt {
+        grid-row: 1;
+        font-weight: bold;
+        text-align: center;
+    }
+    > dd {
+        grid-row: 2;
+        text-align: center;
+        margin-inline-start: 0px;
+    }
+}
