@@ -88,6 +88,12 @@ form > div > label {
             margin: 0;
         }
     }
+    > article > div > .year {
+        font-size: 80%;
+        font-weight: bold;
+        font-family: baskerville, serif;
+        font-style: italic;
+    }
 }
 
 h1 {
@@ -126,5 +132,88 @@ div#profile-stats > dl{
         grid-row: 2;
         text-align: center;
         margin-inline-start: 0px;
+    }
+}
+
+#projects-pie-plot {
+    max-width: 20em;
+    margin-block: 2em;
+  
+    overflow: visible;
+  }
+
+.legend {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
+    list-style-type: none;
+    padding: 1em;
+    border-radius: 5px;
+    background-color: color-mix(in oklch, rgba(241, 223, 241, 0.3), canvas 20%);
+    > li {
+        align-items: center;
+    }
+    > li.selected {
+        > span.swatch {
+        background-color: black !important;
+        }
+        
+    }
+}
+
+span.swatch {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin-right: 0.5em;
+    border-radius: 50%
+}
+
+.container {
+    display: flex;
+    gap: 2em;
+    > .legend {
+        height: 100%;
+        align-self: center;
+    }
+}
+
+&:has(path:hover) {
+    path:not(:hover) {
+      opacity: 0.5;
+    }
+  }
+path {
+transition: 300ms;
+cursor: pointer;
+}
+path.selected {
+    --color: black !important;
+    &:is(path) {
+        fill: var(--color);
+    }
+}
+
+.searchBar {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    align-items: center;
+    width: 100%;
+    > input {
+        padding: 0.5em;
+        border-radius: 5px;
+        border: 1px solid;
+        width: 100%;
+    }
+    > button {
+        padding: 0.5em;
+        border-radius: 5px;
+        border: 1px solid;
     }
 }

@@ -49,6 +49,8 @@ for (let theme of themes) {
     option.textContent = theme;
     themeSelect.append(option);
 }
+themeSelect.value = 'light';
+document.documentElement.style.setProperty('color-scheme', 'light');
 
 let themeContainer = document.createElement('div');
 themeLabel.classList.add('theme-select-label');
@@ -61,6 +63,7 @@ themeSelect.addEventListener('input', function (event) {
     console.log('color scheme changed to', event.target.value);
     document.documentElement.style.setProperty('color-scheme', event.target.value);
     if (event.target.value === 'automatic') {
+        console.log('color scheme automatic');
         const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
         if (darkModeMediaQuery.matches) {
             document.documentElement.style.setProperty('color-scheme', 'dark');
@@ -118,14 +121,23 @@ export function renderProjects(projects, containerElement, headingLevel) {
     for (const project of projects) {
         const article = document.createElement('article');
         const title = document.createElement(headingLevel);
-        title.textContent = project.title;
-        article.append(title);
+        const description_block = document.createElement('div');
         const description = document.createElement('p');
-        description.textContent = project.description;
+        const year = document.createElement('span');
+        year.classList.add('year');
         const image = document.createElement('img');
+
         image.src = project.image;
         image.alt = project.title;
-        article.append(description);
+        title.textContent = project.title;
+        year.textContent = `${project.year}`;
+        description.textContent = project.description;
+        
+        description_block.append(description);
+        description_block.append(year);
+        article.append(title);
+        article.append(description_block);
+    
         containerElement.appendChild(article);
     }
 }
