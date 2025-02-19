@@ -50,8 +50,8 @@ for (let theme of themes) {
     option.textContent = theme;
     themeSelect.append(option);
 }
-themeSelect.value = 'light';
-document.documentElement.style.setProperty('color-scheme', 'light');
+themeSelect.value = localStorage.getItem('color-scheme') || 'light';
+document.documentElement.style.setProperty('color-scheme', localStorage.getItem('color-scheme') || 'light');
 
 let themeContainer = document.createElement('div');
 themeLabel.classList.add('theme-select-label');
@@ -62,6 +62,8 @@ document.body.prepend(themeContainer);
 
 themeSelect.addEventListener('input', function (event) {
     console.log('color scheme changed to', event.target.value);
+    localStorage.setItem('color-scheme', event.target.value);
+    console.log('color scheme set to', localStorage.getItem('color-scheme'));
     document.documentElement.style.setProperty('color-scheme', event.target.value);
     if (event.target.value === 'automatic') {
         console.log('color scheme automatic');
