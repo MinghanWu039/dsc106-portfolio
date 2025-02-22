@@ -64,6 +64,11 @@ a {
     margin-left: 220px;
 } */
 
+article img {
+    max-width: 100%;
+    height: auto;
+    margin: 5px;
+}
 
 form {
     display: grid;

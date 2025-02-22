@@ -1,9 +1,9 @@
 [
     {
-        "title": "Lorem ipsum dolor sit.",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "year": 2020,
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem porro blanditiis neque error in quae, molestiae nam sunt laborum unde, provident, distinctio illo tempora aliquam modi consequatur recusandae natus cumque."
+        "title": "Bikeston",
+        "image": "../lib/project_imgs/bikeston.png",
+        "year": 2025,
+        "description": "Created an interactive map that shows bike data in Boston."
     },
     {
         "title": "Voluptas eum accusantium eveniet?",

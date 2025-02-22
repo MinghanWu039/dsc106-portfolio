@@ -131,6 +131,11 @@ export function renderProjects(projects, containerElement, headingLevel) {
         const image = document.createElement('img');
 
         image.src = project.image;
+        image.onload = function() {
+            console.log(`Image dimensions: ${this.naturalWidth}x${this.naturalHeight}`);
+            this.width = 300;
+            this.height = 300;
+        };
         image.alt = project.title;
         title.textContent = project.title;
         year.textContent = `${project.year}`;
@@ -138,6 +143,7 @@ export function renderProjects(projects, containerElement, headingLevel) {
         
         description_block.append(description);
         description_block.append(year);
+        description_block.append(image);
         article.append(title);
         article.append(description_block);
     
